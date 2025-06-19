@@ -47,7 +47,7 @@ class Hoteleria:
 
     hotel = Hoteleria()
 
-    # Agrega 4 habitaciones al hotel
+ # Agrega 4 habitaciones al hotel
     hotel.agregar_habitacion(Habitacion(101, "sauna", 40))
     hotel.agregar_habitacion(Habitacion(102, "vip", 30))
     hotel.agregar_habitacion(Habitacion(103, "normal", 20))
@@ -57,3 +57,21 @@ class Hoteleria:
     print(" Estado actual de las habitaciones:")
     for info in hotel.mostrar_habitaciones():
         print(info)
+
+
+# Solicitar número de habitación
+entrada_numero = input("\nIngrese el número de habitación que desea reservar: ")
+if entrada_numero.isdigit():
+    numero = int(entrada_numero)
+
+    # Solicitar número de horas
+    entrada_horas = input("Ingrese el número de horas que desea reservar: ")
+    if entrada_horas.isdigit():
+        horas = int(entrada_horas)
+
+        # Realizar reserva
+        print("\n" + hotel.reservar_habitacion(numero, horas))
+    else:
+        print("Debe ingresar un número válido para las horas.")
+else:
+    print("Debe ingresar un número válido para la habitación.")
