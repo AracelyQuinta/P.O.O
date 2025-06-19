@@ -37,3 +37,10 @@ class Hoteleria:
             if hab.numero == numero:
                 return hab
         return None
+
+    def reservar_habitacion(self, numero, horas):
+        habitacion = self.buscar_habitacion(numero)
+        if habitacion:
+            return habitacion.reservar(horas)
+        else:
+            return " Habitación no encontrada."
