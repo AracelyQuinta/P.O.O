@@ -3,7 +3,7 @@
 
 
 class Hoteleria:
-    def __init__(self, hotel,numero_de_habitacion, tipo_de_habitacion,disponibilidad,precio_de_la_habitacion):
+    def __init__(self,numero_de_habitacion, tipo_de_habitacion,disponibilidad,precio_de_la_habitacion):
         self.numero_de_habitacion = numero_de_habitacion
         self.tipo_de_habitacion = tipo_de_habitacion
         self.disponibilidad = disponibilidad
