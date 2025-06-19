@@ -1,1 +1,2 @@
+La finalidad de la creacion de este programa sirve para gestionar de forma simple las reservas de habitaciones en un hotel, permitiendo al usuario ver la disponibilidad, consultar precios y reservar según el número de horas deseadas. Ayuda a automatizar el proceso de registro y control de habitaciones, lo cual resulta útil para pequeñas instalaciones que desean un sistema básico de organización y atención al cliente sin complicaciones
 ![image](https://github.com/user-attachments/assets/e7f6a659-d970-44e6-8f91-705063f3d98a)
