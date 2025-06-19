@@ -1,84 +1,77 @@
 # Programación Orientada a Objetos (POO)
 # Sistema simple de reservas de habitaciones de hotel
 
-# Clase que representa una habitación
+# Se define la clase que representa una habitación del hotel
 class Habitacion:
     def __init__(self, numero, tipo, precio_por_hora, disponible=True):
-        # Inicializa los atributos de la habitación
-        self.numero = numero
-        self.tipo = tipo
-        self.precio_por_hora = precio_por_hora
-        self.disponible = disponible
+        self.numero = numero              # Número único de la habitación
+        self.tipo = tipo                  # Tipo de habitación (ej: sauna, vip, etc.)
+        self.precio_por_hora = precio_por_hora  # Precio que se cobra por hora
+        self.disponible = disponible      # Estado: True si está libre, False si está ocupada
 
     def mostrar_info(self):
-        # Muestra la información detallada de la habitación
-        estado = "Disponible" if self.disponible else "No disponible"
-        return f"Habitación {self.numero} - Tipo: {self.tipo} - Precio/hora: ${self.precio_por_hora} - {estado}"
+        estado = "Disponible" if self.disponible else "No disponible"  # Determina si la habitación está libre o no
+        return f"Habitación {self.numero} - Tipo: {self.tipo} - Precio/hora: ${self.precio_por_hora} - {estado}"  # Muestra los datos
 
     def reservar(self, horas):
-        # Permite reservar la habitación si está disponible
-        if self.disponible:
-            self.disponible = False
-            total = self.precio_por_hora * horas
-            return f"Reserva confirmada. Total a pagar por {horas} horas: ${total}"
+        if self.disponible:                     # Verifica si está disponible
+            self.disponible = False             # Cambia el estado a ocupada
+            total = self.precio_por_hora * horas  # Calcula el costo total por las horas reservadas
+            return f"Reserva confirmada. Total a pagar por {horas} horas: ${total}"  # Mensaje de confirmación
         else:
-            return " Lo siento, esta habitación no está disponible."
+            return " Lo siento, esta habitación no está disponible."  # Mensaje si ya está ocupada
 
 # Clase que gestiona todas las habitaciones del hotel
 class Hoteleria:
     def __init__(self):
-        # Lista vacía para almacenar las habitaciones
-        self.habitaciones = []
+        self.habitaciones = []  # Lista donde se almacenan todas las habitaciones
 
     def agregar_habitacion(self, habitacion):
-        # Agrega una nueva habitación al hotel
-        self.habitaciones.append(habitacion)
+        self.habitaciones.append(habitacion)  # Añade una habitación al listado
 
     def mostrar_habitaciones(self):
-        # Muestra todas las habitaciones con su estado
-        return [hab.mostrar_info() for hab in self.habitaciones]
+        return [hab.mostrar_info() for hab in self.habitaciones]  # Muestra info de todas las habitaciones
 
     def buscar_habitacion(self, numero):
-        # Busca una habitación por su número
-        for hab in self.habitaciones:
-            if hab.numero == numero:
-                return hab
-        return None
+        for hab in self.habitaciones:  # Recorre cada habitación
+            if hab.numero == numero:   # Compara el número con el que busca el usuario
+                return hab             # Si la encuentra, la retorna
+        return None                    # Si no está, devuelve None
 
     def reservar_habitacion(self, numero, horas):
-        # Realiza la reserva si la habitación existe
-        habitacion = self.buscar_habitacion(numero)
-        if habitacion:
-            return habitacion.reservar(horas)
+        habitacion = self.buscar_habitacion(numero)  # Busca la habitación
+        if habitacion:                               # Si existe...
+            return habitacion.reservar(horas)        # ...intenta reservarla
         else:
-            return " Habitación no encontrada."
+            return " Habitación no encontrada."      # Mensaje si no existe
 
-# Zona principal del programa
-# Crear una instancia de hotel
-hotel = Hoteleria()
+# Zona principal del programa, donde se ejecuta todo
+hotel = Hoteleria()  # Crea un objeto hotel con su lista de habitaciones vacía
 
-# Agregar habitaciones al sistema
+# Se agregan cuatro habitaciones con diferentes características
 hotel.agregar_habitacion(Habitacion(101, "sauna", 40))
 hotel.agregar_habitacion(Habitacion(102, "vip", 30))
 hotel.agregar_habitacion(Habitacion(103, "normal", 20))
 hotel.agregar_habitacion(Habitacion(104, "económico", 15))
 
-# Mostrar el estado actual de todas las habitaciones
+# Se imprime el estado actual de cada habitación del hotel
 print(" Estado actual de las habitaciones:")
-for info in hotel.mostrar_habitaciones():
+for info in hotel.mostrar_habitaciones():  # Recorre cada habitación y la imprime
     print(info)
 
-# Solicitar número de habitación y horas al usuario, validando entrada sin try/except
-entrada_numero = input("\nIngrese el número de habitación que desea reservar: ")
-if entrada_numero.isdigit():
-    numero = int(entrada_numero)
+# Se solicita al usuario que ingrese los datos para hacer una reserva
 
-    entrada_horas = input("Ingrese el número de horas que desea reservar: ")
-    if entrada_horas.isdigit():
-        horas = int(entrada_horas)
-        # Ejecutar la reserva y mostrar resultado
-        print("\n" + hotel.reservar_habitacion(numero, horas))
+entrada_numero = input("\nIngrese el número de habitación que desea reservar: ")  # Se guarda el número ingresado
+
+if entrada_numero.isdigit():                     # Se valida que sea un número
+    numero = int(entrada_numero)                 # Se convierte a entero
+
+    entrada_horas = input("Ingrese el número de horas que desea reservar: ")  # Pide las horas
+    if entrada_horas.isdigit():                  # Valida que también sea un número
+        horas = int(entrada_horas)               # Se convierte a entero
+
+        print("\n" + hotel.reservar_habitacion(numero, horas))  # Intenta reservar y muestra el resultado
     else:
-        print("Debe ingresar un número válido para las horas.")
+        print("Debe ingresar un número válido para las horas.")  # Mensaje de error si no es número
 else:
-    print("Debe ingresar un número válido para la habitación.")
+    print("Debe ingresar un número válido para la habitación.")  # Mensaje de error si no es número
