@@ -25,3 +25,6 @@ class Hoteleria:
 class Hoteleria:
     def __init__(self):
         self.habitaciones = []
+
+    def agregar_habitacion(self, habitacion):
+        self.habitaciones.append(habitacion)
