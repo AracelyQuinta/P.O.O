@@ -44,3 +44,16 @@ class Hoteleria:
             return habitacion.reservar(horas)
         else:
             return " Habitación no encontrada."
+
+    hotel = Hoteleria()
+
+    # Agrega 4 habitaciones al hotel
+    hotel.agregar_habitacion(Habitacion(101, "sauna", 40))
+    hotel.agregar_habitacion(Habitacion(102, "vip", 30))
+    hotel.agregar_habitacion(Habitacion(103, "normal", 20))
+    hotel.agregar_habitacion(Habitacion(104, "económico", 15))
+
+    # Muestra el estado actual
+    print(" Estado actual de las habitaciones:")
+    for info in hotel.mostrar_habitaciones():
+        print(info)
