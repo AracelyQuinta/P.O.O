@@ -21,3 +21,7 @@ class Hoteleria:
             return f"Reserva confirmada. Total a pagar por {horas} horas: ${total}"
         else:
             return " Lo siento, esta habitación no está disponible."
+
+class Hoteleria:
+    def __init__(self):
+        self.habitaciones = []
