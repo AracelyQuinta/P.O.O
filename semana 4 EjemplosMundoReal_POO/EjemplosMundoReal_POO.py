@@ -28,3 +28,6 @@ class Hoteleria:
 
     def agregar_habitacion(self, habitacion):
         self.habitaciones.append(habitacion)
+
+    def mostrar_habitaciones(self):
+        return [hab.mostrar_info() for hab in self.habitaciones]
