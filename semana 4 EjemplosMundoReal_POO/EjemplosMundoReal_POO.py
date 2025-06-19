@@ -13,3 +13,11 @@ class Hoteleria:
     def mostrar_info(self):
         estado = "Disponible" if self.disponible else "No disponible"
         return f"Habitación {self.numero} - Tipo: {self.tipo} - Precio/hora: ${self.precio_por_hora} - {estado}"
+
+    def reservar(self, horas):
+        if self.disponible:
+            self.disponible = False
+            total = self.precio_por_hora * horas
+            return f"Reserva confirmada. Total a pagar por {horas} horas: ${total}"
+        else:
+            return " Lo siento, esta habitación no está disponible."
