@@ -31,3 +31,9 @@ class Hoteleria:
 
     def mostrar_habitaciones(self):
         return [hab.mostrar_info() for hab in self.habitaciones]
+
+    def buscar_habitacion(self, numero):
+        for hab in self.habitaciones:
+            if hab.numero == numero:
+                return hab
+        return None
