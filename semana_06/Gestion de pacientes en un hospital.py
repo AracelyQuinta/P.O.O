@@ -65,7 +65,7 @@ class TipoDePaciente(Paciente):
 # Bloque principal para pruebas (se ejecuta solo si el archivo se corre directamente)
 if __name__ == "__main__":
     # Se crea un paciente de prueba con todos los datos
-    paciente = TipoDePaciente("yelaely", "Quinta", 50, "Chequeo anual", "Medicina interna", "Dra. Portero")
+    paciente = TipoDePaciente("Yelae", "Quiroz", 50, "Chequeo anual", "Medicina interna", "Ana Portero")
 
     # Se muestran todos los datos relacionados con la persona y su atención médica
     print(paciente.mostrar_datos_de_la_persona())           # Datos generales del paciente
