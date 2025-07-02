@@ -1,6 +1,7 @@
 """
  Gestión de Pacientes en un Hospital
-"""# Clase base que define atributos generales de cualquier persona
+"""
+# Clase base que define atributos generales de cualquier persona
 class Persona:
     def __init__(self, nombre, apellido, edad):
         self.nombre = nombre                     # Nombre del paciente
