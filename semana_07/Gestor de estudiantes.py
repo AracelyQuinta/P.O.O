@@ -55,7 +55,7 @@ class Verificar(Estudiante):
             archivo.write(mensaje)
 
 # Bloque de ejecución: se crea una persona y se utiliza para instanciar un estudiante verificado
-persona1 = Persona("Juan", "Quiroz", 19)  # Se instancia un objeto de la clase 'Persona'
+persona1 = Persona("Juana", "Quiroz", 19)  # Se instancia un objeto de la clase 'Persona'
 
 # Se instancia un objeto de la clase 'Verificar' usando los datos de 'persona1'
 alumno = Verificar(persona1.nombre, persona1.apellido, persona1.edad, "Ingeniería", "GRADUADO", 7)
