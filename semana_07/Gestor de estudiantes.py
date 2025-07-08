@@ -49,8 +49,10 @@ class Verificar(Estudiante):
     def __del__(self):
         #Méttodo especial que se ejecuta al eliminar la instancia
         #Imprime un mensaje confirmando la eliminación del estudiante
-        print(f"Estudiante {self.nombre} {self.apellido} ha sido removido del sistema.")
-
+        mensaje = f"Estudiante {self.nombre} {self.apellido} ha sido removido del sistema\n"
+        print(mensaje)
+        with open("eliminados.txt", "a", encoding="utf-8") as archivo:
+            archivo.write(mensaje)
 
 # Bloque de ejecución: se crea una persona y se utiliza para instanciar un estudiante verificado
 persona1 = Persona("Juan", "Quiroz", 19)  # Se instancia un objeto de la clase 'Persona'
