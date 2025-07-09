@@ -8,8 +8,10 @@ class Persona:
 
     def mostrarPersona(self):
         # Devuelve una descripción textual del ciudadano
-        return f"El ciudadan@ {self.nombre} {self.apellido} con {self.edad} años está asistiendo a la UEA."
+        return f"La persona {self.nombre} {self.apellido} con {self.edad} años está asistiendo a la UEA."
 
+    def __str__(self):
+        return "Datos optenidos de una persona"
 
 # Se define la clase 'Estudiante' que hereda de 'Persona' e incluye atributos académicos
 class Estudiante(Persona):
@@ -24,6 +26,8 @@ class Estudiante(Persona):
         # Devuelve una descripción textual del estado académico del estudiante
         return f"El estudiante {self.nombre} estudia la carrera de {self.carrera}, está en el semestre número {self.semestre_o_graduado} y cursa {self.asignatura} asignaturas."
 
+    def __del__(self):
+        return "Esa fue la informacion del estudiante."
 
 # Se define la clase 'Verificar' que hereda de 'Estudiante' y añade lógica para evaluar el estado académico
 class Verificar(Estudiante):
@@ -47,8 +51,8 @@ class Verificar(Estudiante):
         return f"El estudiante {self.nombre}: {self.verificacion()}"
 
     def __del__(self):
-        #Méttodo especial que se ejecuta al eliminar la instancia
-        #Imprime un mensaje confirmando la eliminación del estudiante
+        #Método especial que se ejecuta al refrescar la instancia
+        #Imprime un mensaje confirmando la actualizacion del estudiante
         mensaje = f"Estudiante {self.nombre} {self.apellido} ha sido removido del sistema\n"
         print(mensaje)
         with open("eliminados.txt", "a", encoding="utf-8") as archivo:
@@ -64,6 +68,3 @@ alumno = Verificar(persona1.nombre, persona1.apellido, persona1.edad, "Ingenier�
 print(persona1.mostrarPersona())           # Muestra la información general del ciudadano
 print(alumno.mostrarestudiante())          # Muestra la información académica del estudiante
 print(alumno.mostrar_verificacion())       # Muestra el estado académico actual
-
-# Se elimina el objeto 'alumno', lo cual activa el métodoo __del__
-del alumno
