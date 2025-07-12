@@ -35,4 +35,3 @@ mensaje1.mostrarcontenido()
 mensaje1.guardar()
 
 # Liberación de memoria (opcional)
-del mensaje1
